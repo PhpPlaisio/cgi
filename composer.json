@@ -16,5 +16,8 @@
     "psr-4": {
       "SetBased\\Abc\\Cgi\\": "src/"
     }
+  },
+  "config": {
+    "bin-dir": "bin/"
   }
 }
