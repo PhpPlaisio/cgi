@@ -261,7 +261,7 @@ interface Cgi
    * @api
    * @since 1.0.0
    */
-  public function putVar(string $name, ?string $value): string;
+  public function putString(string $name, ?string $value): string;
 
   //--------------------------------------------------------------------------------------------------------------------
 }
