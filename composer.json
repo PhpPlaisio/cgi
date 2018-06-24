@@ -9,14 +9,14 @@
   "require": {
     "php": ">=7.1.0"
   },
+  "require-dev": {
+    "phing/phing": "^2.0.0",
+    "phpunit/phpunit": "^6.0.0"
+  },
   "autoload": {
     "psr-4": {
       "SetBased\\Abc\\Cgi\\": "src/"
     }
-  },
-  "require-dev": {
-    "phing/phing": "^2.0.0",
-    "phpunit/phpunit": "^6.0.0"
   },
   "autoload-dev": {
     "psr-4": {
