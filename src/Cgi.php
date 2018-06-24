@@ -238,6 +238,20 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * Returns a string with holding an integer CGI variable that can be used as a part of a URL.
+   *
+   * @param string   $name  The name of the CGI variable.
+   * @param int|null $value The value of the CGI variable.
+   *
+   * @return string
+   *
+   * @api
+   * @since 1.0.0
+   */
+  public function putInt(string $name, ?int $value): string;
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
    * Returns the common leader for all URLs.
    *
    * @return string
@@ -246,22 +260,6 @@ interface Cgi
    * @since 1.0.0
    */
   public function putLeader(): string;
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Returns a string with holding a CGI variable with an URL as value that can be used as a part of a URL.
-   *
-   * Note: This method is an alias of {@link putCgiVar}.
-   *
-   * @param string      $name  The name of the CGI variable.
-   * @param string|null $value The value of the CGI variable.
-   *
-   * @return string
-   *
-   * @api
-   * @since 1.0.0
-   */
-  public function putUrl(string $name, ?string $value): string;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -275,7 +273,7 @@ interface Cgi
    * @api
    * @since 1.0.0
    */
-  public function putSlugName(string $string, string $extension = '.html'): string;
+  public function putSlugName(?string $string, string $extension = '.html'): string;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -290,6 +288,23 @@ interface Cgi
    * @since 1.0.0
    */
   public function putString(string $name, ?string $value): string;
+
+  //--------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * Returns a string with holding a CGI variable with an URL as value that can be used as a part of a URL.
+   *
+   * Note: This method is an alias of {@link putCgiVar}.
+   *
+   * @param string      $name  The name of the CGI variable.
+   * @param string|null $value The value of the CGI variable.
+   *
+   * @return string
+   *
+   * @api
+   * @since 1.0.0
+   */
+  public function putUrl(string $name, ?string $value): string;
 
   //--------------------------------------------------------------------------------------------------------------------
 }
