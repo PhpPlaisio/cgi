@@ -275,7 +275,7 @@ interface Cgi
    * @api
    * @since 1.0.0
    */
-  public static function putSlugName(string $string, string $extension = '.html'): string;
+  public function putSlugName(string $string, string $extension = '.html'): string;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
