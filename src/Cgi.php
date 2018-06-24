@@ -209,6 +209,20 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * Returns a string with holding a floating point CGI variable that can be used as a part of a URL.
+   *
+   * @param string     $name  The name of the boolean CGI variable.
+   * @param float|null $value The value of the CGI variable.
+   *
+   * @return string
+   *
+   * @api
+   * @since 1.0.0
+   */
+  public function putFloat(string $name, ?float $value): string;
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
    * Returns a string with holding a CGI variable that can be used as a part of a URL.
    *
    * @param string      $name  The name of the CGI variable.
