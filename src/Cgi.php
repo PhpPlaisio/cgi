@@ -251,6 +251,20 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * Returns (virtual) filename based on the slug of a string that can be safely used in an URL.
+   *
+   * @param string $string    The string.
+   * @param string $extension The extension of the (virtual) filename.
+   *
+   * @return string
+   *
+   * @api
+   * @since 1.0.0
+   */
+  public static function putSlugName(string $string, string $extension = '.html'): string;
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
    * Returns a string with holding a CGI variable that can be used as a part of a URL.
    *
    * @param string      $name  The name of the CGI variable.
