@@ -10,11 +10,6 @@
               checkreturn="true"/>
     </target>
 
-    <!-- Runs all unit tests -->
-    <target name="unit">
-        <exec command="bin/phpunit --bootstrap=test/bootstrap.php test" passthru="true" checkreturn="true"/>
-    </target>
-
     <target name="build">
         <echo message=""/>
     </target>
