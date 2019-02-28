@@ -117,7 +117,7 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the float value of an optional CGI variable holding.
+   * Returns the float value of an optional CGI variable..
    *
    * @param string     $name    The name of the CGI variable.
    * @param float|null $default The value to be used when the CGI variable is not set.
@@ -147,7 +147,7 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the integer value of an optional CGI variable holding.
+   * Returns the integer value of an optional CGI variable.
    *
    * @param string   $name    The name of the CGI variable.
    * @param int|null $default The value to be used when the CGI variable is not set.
@@ -196,7 +196,7 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a boolean CGI variable that can be used as a part of a URL.
+   * Returns a string with a boolean CGI variable that can be used as a part of a URL.
    *
    * @param string    $name      The name of the boolean CGI variable.
    * @param bool|null $value     The value of the CGI variable.
@@ -211,7 +211,7 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a floating point CGI variable that can be used as a part of a URL.
+   * Returns a string with a floating point CGI variable that can be used as a part of a URL.
    *
    * @param string     $name  The name of the boolean CGI variable.
    * @param float|null $value The value of the CGI variable.
@@ -225,7 +225,7 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a CGI variable that can be used as a part of a URL.
+   * Returns a string with a CGI variable that can be used as a part of a URL.
    *
    * @param string      $name  The name of the CGI variable.
    * @param int|null    $value The value of the CGI variable.
@@ -240,7 +240,7 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding an integer CGI variable that can be used as a part of a URL.
+   * Returns a string with an integer CGI variable that can be used as a part of a URL.
    *
    * @param string   $name  The name of the CGI variable.
    * @param int|null $value The value of the CGI variable.
@@ -279,7 +279,7 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a CGI variable that can be used as a part of a URL.
+   * Returns a string with a CGI variable that can be used as a part of a URL.
    *
    * @param string      $name  The name of the CGI variable.
    * @param string|null $value The value of the CGI variable.
@@ -294,7 +294,7 @@ interface Cgi
   //--------------------------------------------------------------------------------------------------------------------
 
   /**
-   * Returns a string with holding a CGI variable with an URL as value that can be used as a part of a URL.
+   * Returns a string with a CGI variable with an URL as value that can be used as a part of a URL.
    *
    * Note: This method is an alias of {@link putCgiVar}.
    *
