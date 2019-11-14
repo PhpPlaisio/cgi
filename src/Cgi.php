@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\Cgi;
+namespace Plaisio\Cgi;
 
 /**
  * Interface for defining classes for obfuscating and un-obfuscating database IDs.

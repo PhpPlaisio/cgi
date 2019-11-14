@@ -1,8 +1,8 @@
 {
-  "name": "setbased/abc-cgi",
-  "description": "ABC-Framework: CGI",
+  "name": "plaisio/cgi",
+  "description": "PhpPlaisio: CGI",
   "keywords": [
-    "ABC-Framework",
+    "PhpPlaisio",
     "CGI"
   ],
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "SetBased\\Abc\\Cgi\\": "src/"
+      "Plaisio\\Cgi\\": "src/"
     }
   },
   "config": {
