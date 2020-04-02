@@ -23,7 +23,7 @@
 </tbody>
 </table>
 
-Interface for getting CGI variables..
+Interface for getting CGI variables.
 
 # Design
 
