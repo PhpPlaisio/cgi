@@ -1,0 +1,9 @@
+<kernel>
+    <properties>
+        <property>
+            <type>\Plaisio\Cgi\Cgi</type>
+            <name>cgi</name>
+            <description>The helper object for Cgi variables.</description>
+        </property>
+    </properties>
+</kernel>
