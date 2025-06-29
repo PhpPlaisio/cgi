@@ -4,16 +4,16 @@ declare(strict_types=1);
 namespace Plaisio\Cgi;
 
 /**
- * Interface for defining classes for obfuscating and un-obfuscating database IDs.
+ * Interface for safely accessing CGI parameters.
  */
 interface Cgi
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of a mandatory boolean CGI variable.
+   * Returns the value of a mandatory boolean CGI parameter.
    *
-   * @param string    $name    The name of the CGI variable.
-   * @param bool|null $default The default value if the CGI variable is not set.
+   * @param string    $name    The name of the CGI parameter.
+   * @param bool|null $default The default value if the CGI parameter is not set.
    *
    * @return bool
    *
@@ -24,10 +24,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the float value of a mandatory CGI variable.
+   * Returns the float value of a mandatory CGI parameter.
    *
-   * @param string     $name    The name of the CGI variable.
-   * @param float|null $default The value to be used when the CGI variable is not set.
+   * @param string     $name    The name of the CGI parameter.
+   * @param float|null $default The value to be used when the CGI parameter is not set.
    *
    * @return float
    *
@@ -40,10 +40,10 @@ interface Cgi
   /**
    * Returns the integer value of a mandatory obfuscated database ID.
    *
-   * @param string   $name    The name of the CGI variable.
-   * @param string   $label   An alias for the column holding database ID and must corresponds with label that was used
-   *                          to obfuscate the database ID.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param string   $name    The name of the CGI parameter.
+   * @param string $label     An alias for the column holding database ID and must correspond with the label that was
+   *                          used to obfuscate the database ID.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int
    *
@@ -54,10 +54,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the integer value of a mandatory CGI variable.
+   * Returns the integer value of a mandatory CGI parameter.
    *
-   * @param string   $name    The name of the CGI variable.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param string   $name    The name of the CGI parameter.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int
    *
@@ -68,12 +68,12 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of a mandatory CGI variable.
+   * Returns the value of a mandatory CGI parameter.
    *
-   * For retrieving a CGI variable with a relative URI use {@link getManCgiUrl}.
+   * For retrieving a CGI parameter with a relative URI use {@link getManCgiUrl}.
    *
-   * @param string      $name    The name of the CGI variable.
-   * @param string|null $default The value to be used when the CGI variable is not set.
+   * @param string      $name    The name of the CGI parameter.
+   * @param string|null $default The value to be used when the CGI parameter is not set.
    *
    * @return string
    *
@@ -84,14 +84,14 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of a mandatory CGI variable holding an URL.
+   * Returns the value of a mandatory CGI parameter holding a URL.
    *
    * This method will protect against unvalidated redirects, see
    * <https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet>.
    *
-   * @param string      $name          The name of the CGI variable.
-   * @param string|null $default       The URL to be used when the CGI variable is not set.
-   * @param bool        $forceRelative If set the URL must be a relative URL. If the URL is not a relative URL an
+   * @param string      $name          The name of the CGI parameter.
+   * @param string|null $default       The URL to be used when the CGI parameter is not set.
+   * @param bool        $forceRelative If set, the URL must be a relative URL. If the URL is not a relative URL an
    *                                   exception will be thrown.
    *
    * @return string
@@ -103,10 +103,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of an optional boolean CGI variable.
+   * Returns the value of an optional boolean CGI parameter.
    *
-   * @param string    $name    The name of the CGI variable.
-   * @param bool|null $default The default value if the CGI variable is not set.
+   * @param string    $name    The name of the CGI parameter.
+   * @param bool|null $default The default value if the CGI parameter is not set.
    *
    * @return bool|null
    *
@@ -117,10 +117,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the float value of an optional CGI variable..
+   * Returns the float value of an optional CGI parameter.
    *
-   * @param string     $name    The name of the CGI variable.
-   * @param float|null $default The value to be used when the CGI variable is not set.
+   * @param string     $name    The name of the CGI parameter.
+   * @param float|null $default The value to be used when the CGI parameter is not set.
    *
    * @return float|null
    *
@@ -133,10 +133,10 @@ interface Cgi
   /**
    * Returns the value of an optional obfuscated database ID.
    *
-   * @param string   $name    The name of the CGI variable.
-   * @param string   $label   An alias for the column holding database ID and must corresponds with label that was used
-   *                          to obfuscate the database ID.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param string   $name    The name of the CGI parameter.
+   * @param string $label     An alias for the column holding database ID and must correspond with the label that was
+   *                          used to obfuscate the database ID.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int|null
    *
@@ -147,10 +147,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the integer value of an optional CGI variable.
+   * Returns the integer value of an optional CGI parameter.
    *
-   * @param string   $name    The name of the CGI variable.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param string   $name    The name of the CGI parameter.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int|null
    *
@@ -161,12 +161,12 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of an optional CGI variable.
+   * Returns the value of an optional CGI parameter.
    *
-   * For retrieving a CGI variable with a relative URI use {@link getOptCgiUrl}.
+   * For retrieving a CGI parameter with a relative URI use {@link getOptCgiUrl}.
    *
-   * @param string      $name    The name of the CGI variable.
-   * @param string|null $default The value to be used when the CGI variable is not set.
+   * @param string      $name    The name of the CGI parameter.
+   * @param string|null $default The value to be used when the CGI parameter is not set.
    *
    * @return string|null
    *
@@ -177,14 +177,14 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of an optional CGI variable holding an URL.
+   * Returns the value of an optional CGI parameter holding a URL.
    *
    * This method will protect against unvalidated redirects, see
    * <https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet>.
    *
-   * @param string      $name          The name of the CGI variable.
-   * @param string|null $default       The URL to be used when the CGI variable is not set.
-   * @param bool        $forceRelative If set the URL must be a relative URL. If the URL is not a relative URL an
+   * @param string      $name          The name of the CGI parameter.
+   * @param string|null $default       The URL to be used when the CGI parameter is not set.
+   * @param bool        $forceRelative If set, the URL must be a relative URL. If the URL is not a relative URL an
    *                                   exception will be thrown.
    *
    * @return string|null
@@ -196,11 +196,11 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with a boolean CGI variable that can be used as a part of a URL.
+   * Returns a string with a boolean CGI parameter that can be used as a part of a URL.
    *
-   * @param string    $name      The name of the boolean CGI variable.
-   * @param bool|null $value     The value of the CGI variable.
-   * @param bool      $mandatory If true a false value will not result in an empty string.
+   * @param string    $name      The name of the boolean CGI parameter.
+   * @param bool|null $value     The value of the CGI parameter.
+   * @param bool      $mandatory If true, a false value will not result in an empty string.
    *
    * @return string
    *
@@ -211,10 +211,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with a floating point CGI variable that can be used as a part of a URL.
+   * Returns a string with a floating point CGI parameter that can be used as a part of a URL.
    *
-   * @param string     $name  The name of the boolean CGI variable.
-   * @param float|null $value The value of the CGI variable.
+   * @param string     $name  The name of the boolean CGI parameter.
+   * @param float|null $value The value of the CGI parameter.
    *
    * @return string
    *
@@ -225,11 +225,11 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with a CGI variable that can be used as a part of a URL.
+   * Returns a string with a CGI parameter that can be used as a part of a URL.
    *
-   * @param string      $name  The name of the CGI variable.
-   * @param int|null    $value The value of the CGI variable.
-   * @param string|null $label The alias for the column holding database ID.
+   * @param string   $name  The name of the CGI parameter.
+   * @param int|null $value The value of the CGI parameter.
+   * @param string   $label The alias for the column holding database ID.
    *
    * @return string
    *
@@ -240,10 +240,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with an integer CGI variable that can be used as a part of a URL.
+   * Returns a string with an integer CGI parameter that can be used as a part of a URL.
    *
-   * @param string   $name  The name of the CGI variable.
-   * @param int|null $value The value of the CGI variable.
+   * @param string   $name  The name of the CGI parameter.
+   * @param int|null $value The value of the CGI parameter.
    *
    * @return string
    *
@@ -279,10 +279,10 @@ interface Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with a CGI variable that can be used as a part of a URL.
+   * Returns a string with a CGI parameter that can be used as a part of a URL.
    *
-   * @param string      $name  The name of the CGI variable.
-   * @param string|null $value The value of the CGI variable.
+   * @param string      $name  The name of the CGI parameter.
+   * @param string|null $value The value of the CGI parameter.
    *
    * @return string
    *
@@ -292,14 +292,13 @@ interface Cgi
   public function putString(string $name, ?string $value): string;
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
-   * Returns a string with a CGI variable with an URL as value that can be used as a part of a URL.
+   * Returns a string with a CGI parameter with a URL as the value that can be used as a part of a URL.
    *
    * Note: This method is an alias of {@link putCgiVar}.
    *
-   * @param string      $name  The name of the CGI variable.
-   * @param string|null $value The value of the CGI variable.
+   * @param string      $name  The name of the CGI parameter.
+   * @param string|null $value The value of the CGI parameter.
    *
    * @return string
    *
